@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Linkedin, Github, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Github, Send, MessageCircle, Clock } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -20,7 +20,6 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
     toast({
       title: "Message Sent!",
       description: "Thank you for reaching out. I'll get back to you soon!",
@@ -36,57 +35,58 @@ const Contact = () => {
     });
   };
 
+  const contactInfo = [
+    {
+      icon: MapPin,
+      title: "Location",
+      value: "Himachal Pradesh, India",
+      color: "text-green-400"
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      value: "divyansh.atri@example.com",
+      color: "text-blue-400"
+    },
+    {
+      icon: Clock,
+      title: "Response Time",
+      value: "Within 24 hours",
+      color: "text-purple-400"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-black mesh-bg">
       <Navbar />
       <div className="pt-24 pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Get In Touch
-              </span>
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-black mb-6">
+              <span className="gradient-text-primary">Get In Touch</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Let's connect and create something amazing together
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div>
-              <h2 className="text-2xl font-bold mb-8">Let's Start a Conversation</h2>
+            <div className="animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <h2 className="text-3xl font-bold mb-8 text-white">Let's Start a Conversation</h2>
               
               <div className="space-y-6 mb-8">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <MapPin className="text-blue-600" size={24} />
+                {contactInfo.map((info, index) => (
+                  <div key={info.title} className="flex items-start space-x-4 p-4 rounded-xl bg-gray-800/30 hover:bg-gray-800/50 transition-all duration-300 hover-lift">
+                    <div className={`p-3 rounded-lg bg-gradient-to-r from-gray-700 to-gray-800 ${info.color}`}>
+                      <info.icon size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-lg">{info.title}</h3>
+                      <p className="text-gray-300">{info.value}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">Location</h3>
-                    <p className="text-gray-600">Himachal Pradesh, India</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <Mail className="text-blue-600" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">Email</h3>
-                    <p className="text-gray-600">divyansh.atri@example.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <Phone className="text-blue-600" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">Phone</h3>
-                    <p className="text-gray-600">Available upon request</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               <div className="flex space-x-4 mb-8">
@@ -94,29 +94,32 @@ const Contact = () => {
                   href="https://www.linkedin.com/in/divyansh-atri" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="group p-4 bg-gradient-to-r from-blue-600/20 to-blue-700/20 hover:from-blue-600/30 hover:to-blue-700/30 rounded-xl transition-all duration-300 hover-lift border border-blue-500/30"
                 >
-                  <Linkedin size={24} />
+                  <Linkedin size={28} className="text-blue-400 group-hover:text-blue-300 transition-colors" />
                 </a>
                 <a 
                   href="https://github.com/divyansh-atri" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-900 transition-colors"
+                  className="group p-4 bg-gradient-to-r from-gray-700/20 to-gray-800/20 hover:from-gray-600/30 hover:to-gray-700/30 rounded-xl transition-all duration-300 hover-lift border border-gray-500/30"
                 >
-                  <Github size={24} />
+                  <Github size={28} className="text-gray-400 group-hover:text-white transition-colors" />
                 </a>
                 <a 
                   href="mailto:divyansh.atri@example.com"
-                  className="bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition-colors"
+                  className="group p-4 bg-gradient-to-r from-green-600/20 to-green-700/20 hover:from-green-600/30 hover:to-green-700/30 rounded-xl transition-all duration-300 hover-lift border border-green-500/30"
                 >
-                  <Mail size={24} />
+                  <Mail size={28} className="text-green-400 group-hover:text-green-300 transition-colors" />
                 </a>
               </div>
 
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-lg text-white">
-                <h3 className="font-bold text-lg mb-2">Ready to Work Together?</h3>
-                <p className="text-blue-100">
+              <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 p-6 rounded-xl border border-green-500/20">
+                <div className="flex items-center mb-3">
+                  <MessageCircle className="text-green-400 mr-3" size={24} />
+                  <h3 className="font-bold text-lg text-white">Ready to Work Together?</h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed">
                   I'm always excited to take on new challenges and collaborate on innovative projects. 
                   Whether you need a full-stack developer or want to discuss an idea, I'd love to hear from you!
                 </p>
@@ -124,14 +127,14 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <Card>
+            <Card className="card-gradient hover-lift animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               <CardHeader>
-                <CardTitle className="text-2xl">Send Me a Message</CardTitle>
+                <CardTitle className="text-2xl text-white">Send Me a Message</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                       Full Name
                     </label>
                     <Input
@@ -142,12 +145,12 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your full name"
-                      className="w-full"
+                      className="w-full bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                       Email Address
                     </label>
                     <Input
@@ -158,12 +161,12 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
-                      className="w-full"
+                      className="w-full bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                       Message
                     </label>
                     <Textarea
@@ -174,13 +177,13 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Tell me about your project or just say hello!"
                       rows={6}
-                      className="w-full"
+                      className="w-full bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
                     />
                   </div>
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                    className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white py-3 text-lg font-semibold rounded-xl hover-lift transition-all duration-300"
                   >
                     <Send className="mr-2" size={20} />
                     Send Message
