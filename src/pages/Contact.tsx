@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, Linkedin, Github, Send, MessageCircle, Clock } from "lucide-react";
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,19 +13,6 @@ const Contact = () => {
     email: "",
     message: ""
   });
-  
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    
-    setFormData({ name: "", email: "", message: "" });
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -129,10 +115,15 @@ const Contact = () => {
             {/* Contact Form */}
             <Card className="card-gradient hover-lift animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               <CardHeader>
-                <CardTitle className="text-2xl text-white">Send Me a Message</CardTitle>
+                <CardTitle className="text-2xl text-white">Contact Form</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                  <p className="text-yellow-300 text-sm">
+                    📧 This form is for display purposes only. Please use the email link or social media links to contact me directly.
+                  </p>
+                </div>
+                <form className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                       Full Name
@@ -141,11 +132,11 @@ const Contact = () => {
                       id="name"
                       name="name"
                       type="text"
-                      required
+                      disabled
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your full name"
-                      className="w-full bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
+                      className="w-full bg-gray-800/30 border-gray-600 text-gray-500 placeholder-gray-500 cursor-not-allowed"
                     />
                   </div>
                   
@@ -157,11 +148,11 @@ const Contact = () => {
                       id="email"
                       name="email"
                       type="email"
-                      required
+                      disabled
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
-                      className="w-full bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
+                      className="w-full bg-gray-800/30 border-gray-600 text-gray-500 placeholder-gray-500 cursor-not-allowed"
                     />
                   </div>
                   
@@ -172,21 +163,22 @@ const Contact = () => {
                     <Textarea
                       id="message"
                       name="message"
-                      required
+                      disabled
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Tell me about your project or just say hello!"
                       rows={6}
-                      className="w-full bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
+                      className="w-full bg-gray-800/30 border-gray-600 text-gray-500 placeholder-gray-500 cursor-not-allowed"
                     />
                   </div>
                   
                   <Button 
-                    type="submit" 
-                    className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white py-3 text-lg font-semibold rounded-xl hover-lift transition-all duration-300"
+                    type="button" 
+                    disabled
+                    className="w-full bg-gray-600 text-gray-400 py-3 text-lg font-semibold rounded-xl cursor-not-allowed"
                   >
                     <Send className="mr-2" size={20} />
-                    Send Message
+                    Form Disabled
                   </Button>
                 </form>
               </CardContent>
