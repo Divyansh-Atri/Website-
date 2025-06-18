@@ -1,6 +1,6 @@
 
 import Navbar from "@/components/Navbar";
-import { MapPin, Code, Heart, Mountain, Award, Coffee } from "lucide-react";
+import { MapPin, Code, Heart, Mountain, Award, Coffee, GraduationCap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
@@ -47,7 +47,7 @@ const About = () => {
               <p className="text-gray-300 mb-6 leading-relaxed text-lg">
                 Born and raised in the beautiful state of Himachal Pradesh, I bring the same dedication 
                 and attention to detail that characterizes my homeland to my work as a full-stack developer. 
-                Currently pursuing my education while building impactful digital solutions.
+                Currently pursuing my education at IIIT Hyderabad while building impactful digital solutions.
               </p>
               
               <p className="text-gray-300 mb-8 leading-relaxed text-lg">
@@ -95,12 +95,13 @@ const About = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="card-gradient hover-lift">
                 <CardContent className="p-6">
-                  <Award className="text-green-400 mx-auto mb-4" size={48} />
-                  <h3 className="text-xl font-semibold mb-3 text-white">Current Studies</h3>
-                  <p className="text-gray-300">
-                    Pursuing higher education while actively developing real-world projects 
-                    and contributing to open-source initiatives.
-                  </p>
+                  <GraduationCap className="text-green-400 mx-auto mb-4" size={48} />
+                  <h3 className="text-xl font-semibold mb-3 text-white">IIIT Hyderabad</h3>
+                  <div className="space-y-2 text-gray-300">
+                    <p className="font-medium">BTech in Computer Science</p>
+                    <p className="font-medium">MS by Research in Natural Sciences</p>
+                    <p className="text-sm text-gray-400">Currently Pursuing</p>
+                  </div>
                 </CardContent>
               </Card>
               <Card className="card-gradient hover-lift">
