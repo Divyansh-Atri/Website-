@@ -2,46 +2,45 @@
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Code, Star, Zap } from "lucide-react";
+import { Github, Code, Lightbulb, BookOpen, Zap, Rocket } from "lucide-react";
 
 const Projects = () => {
-  const projects = [
+  const currentFocus = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
-      github: "#",
-      live: "#",
-      featured: true
+      title: "Full-Stack Development",
+      description: "Currently learning and building applications with React, Node.js, and modern web technologies. Focusing on creating responsive and user-friendly interfaces.",
+      icon: Code,
+      technologies: ["React", "TypeScript", "Node.js", "MongoDB"],
+      status: "In Progress"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
-      technologies: ["React", "TypeScript", "Socket.io", "PostgreSQL"],
-      github: "#",
-      live: "#",
-      featured: false
+      title: "Data Structures & Algorithms",
+      description: "Strengthening problem-solving skills through DSA practice and competitive programming. Working on optimization and efficient code solutions.",
+      icon: Lightbulb,
+      technologies: ["C++", "Python", "Problem Solving", "Optimization"],
+      status: "Ongoing"
     },
     {
-      title: "Weather Dashboard",
-      description: "A responsive weather application that provides current weather conditions, forecasts, and weather maps using real-time API data.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=250&fit=crop",
-      technologies: ["JavaScript", "API Integration", "Chart.js", "CSS3"],
-      github: "#",
-      live: "#",
-      featured: false
+      title: "Machine Learning Exploration",
+      description: "Exploring the intersection of computer science and natural sciences through ML projects. Currently studying various algorithms and their applications.",
+      icon: BookOpen,
+      technologies: ["Python", "TensorFlow", "Data Analysis", "Research"],
+      status: "Learning"
     },
     {
-      title: "Social Media Analytics",
-      description: "A comprehensive analytics dashboard for social media metrics with data visualization and reporting capabilities.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
-      technologies: ["React", "D3.js", "Python", "Flask", "MySQL"],
-      github: "#",
-      live: "#",
-      featured: true
+      title: "Open Source Contributions",
+      description: "Planning to contribute to open source projects to gain real-world experience and collaborate with the developer community.",
+      icon: Github,
+      technologies: ["Git", "Collaboration", "Code Review", "Documentation"],
+      status: "Planning"
     }
+  ];
+
+  const upcomingProjects = [
+    "Personal Portfolio Website Enhancement",
+    "Task Management Application",
+    "Weather Dashboard with API Integration",
+    "Social Media Analytics Tool"
   ];
 
   return (
@@ -51,54 +50,37 @@ const Projects = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl font-black mb-6">
-              <span className="gradient-text-primary">My Projects</span>
+              <span className="gradient-text-primary">My Journey</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              A showcase of my work, featuring full-stack applications and creative solutions
+              Currently building my skills and working on exciting projects as a student developer
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {currentFocus.map((item, index) => (
               <Card 
-                key={project.title} 
-                className={`card-gradient hover-lift transition-all duration-300 animate-fade-in-up relative ${
-                  project.featured ? 'ring-2 ring-green-500/30' : ''
-                }`}
+                key={item.title} 
+                className="card-gradient hover-lift transition-all duration-300 animate-fade-in-up"
                 style={{animationDelay: `${index * 0.2}s`}}
               >
-                {project.featured && (
-                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-green-500 to-blue-500 p-2 rounded-full">
-                    <Star className="text-white" size={16} />
-                  </div>
-                )}
-                
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute top-4 right-4">
-                    <div className="bg-black/70 backdrop-blur-sm rounded-full p-2">
-                      <Code className="text-green-400" size={20} />
-                    </div>
-                  </div>
-                </div>
-                
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold text-white flex items-center gap-2">
-                    {project.title}
-                    {project.featured && <Zap className="text-yellow-400" size={18} />}
+                  <div className="flex items-center justify-between">
+                    <item.icon className="text-green-400" size={32} />
+                    <span className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-green-500/20 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30">
+                      {item.status}
+                    </span>
+                  </div>
+                  <CardTitle className="text-xl font-bold text-white">
+                    {item.title}
                   </CardTitle>
                 </CardHeader>
                 
                 <CardContent>
-                  <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
+                  <p className="text-gray-300 mb-4 leading-relaxed">{item.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech) => (
+                    {item.technologies.map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-gradient-to-r from-green-500/20 to-blue-500/20 text-green-300 rounded-full text-sm font-medium border border-green-500/30"
@@ -107,40 +89,77 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  
-                  <div className="flex space-x-4">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="flex items-center border-gray-600 text-gray-300 hover:text-white hover:border-green-500 hover:bg-green-500/10 transition-all duration-300"
-                    >
-                      <Github className="mr-2" size={16} />
-                      Code
-                    </Button>
-                    <Button 
-                      size="sm" 
-                      className="flex items-center bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white"
-                    >
-                      <ExternalLink className="mr-2" size={16} />
-                      Live Demo
-                    </Button>
-                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="text-center mt-16 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            <Card className="card-gradient hover-lift animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-white flex items-center">
+                  <Rocket className="text-blue-400 mr-3" size={28} />
+                  Upcoming Projects
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {upcomingProjects.map((project, index) => (
+                    <div 
+                      key={project}
+                      className="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition-colors"
+                    >
+                      <Zap className="text-yellow-400" size={16} />
+                      <span className="text-gray-300">{project}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="card-gradient hover-lift animate-fade-in-up" style={{animationDelay: '1s'}}>
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-white flex items-center">
+                  <BookOpen className="text-green-400 mr-3" size={28} />
+                  Learning Goals
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="p-4 rounded-lg bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/20">
+                    <h3 className="font-semibold text-white mb-2">Advanced Full-Stack Development</h3>
+                    <p className="text-gray-300 text-sm">Mastering modern frameworks and best practices</p>
+                  </div>
+                  <div className="p-4 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20">
+                    <h3 className="font-semibold text-white mb-2">Research & Development</h3>
+                    <p className="text-gray-300 text-sm">Bridging computer science with natural sciences</p>
+                  </div>
+                  <div className="p-4 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+                    <h3 className="font-semibold text-white mb-2">Industry Experience</h3>
+                    <p className="text-gray-300 text-sm">Gaining practical experience through internships</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center animate-fade-in-up" style={{animationDelay: '1.2s'}}>
             <div className="card-gradient p-8 rounded-2xl">
-              <h2 className="text-3xl font-bold mb-6 text-white">More Projects Coming Soon!</h2>
+              <h2 className="text-3xl font-bold mb-6 text-white">Let's Build Something Together!</h2>
               <p className="text-gray-300 mb-8 text-lg">
-                I'm constantly working on new projects and learning new technologies. 
-                Check back regularly for updates!
+                I'm always excited to collaborate on new projects and learn from experienced developers. 
+                Feel free to reach out if you have any interesting opportunities!
               </p>
-              <Button className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-3 text-lg rounded-xl hover-lift transition-all duration-300">
-                <Github className="mr-2" size={20} />
-                View All on GitHub
-              </Button>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-3 text-lg rounded-xl hover-lift transition-all duration-300">
+                  <Github className="mr-2" size={20} />
+                  View GitHub Profile
+                </Button>
+                <Button variant="outline" className="border-gray-600 text-gray-300 hover:text-white hover:border-green-500 hover:bg-green-500/10 px-8 py-3 text-lg rounded-xl hover-lift transition-all duration-300">
+                  <Code className="mr-2" size={20} />
+                  Connect With Me
+                </Button>
+              </div>
             </div>
           </div>
         </div>
