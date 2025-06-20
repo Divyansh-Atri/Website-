@@ -18,7 +18,7 @@ const Hero = () => {
           <div className="mb-8 relative">
             <div className="relative inline-block">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+                src="divyansh.png"
                 alt="Divyansh Atri"
                 className="w-40 h-40 rounded-full mx-auto border-4 border-green-500/30 shadow-2xl animate-glow"
               />
@@ -96,7 +96,7 @@ const Hero = () => {
               <Github size={28} className="text-gray-400 group-hover:text-white transition-colors" />
             </a>
             <a 
-              href="mailto:divyansh.atri@example.com"
+              href="mailto:divyansh.atri@research.iiit.ac.in"
               className="group p-4 bg-gray-800/50 hover:bg-green-600/20 rounded-xl transition-all duration-300 hover-lift border border-gray-700 hover:border-green-500"
             >
               <Mail size={28} className="text-gray-400 group-hover:text-green-400 transition-colors" />

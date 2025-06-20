@@ -17,8 +17,8 @@ const Projects = () => {
       title: "Data Structures & Algorithms",
       description: "Strengthening problem-solving skills through DSA practice and competitive programming. Working on optimization and efficient code solutions.",
       icon: Lightbulb,
-      technologies: ["C++", "Python", "Problem Solving", "Optimization"],
-      status: "Ongoing"
+      technologies: ["C++", "C", "Problem Solving", "Optimization"],
+      status: "Completed"
     },
     {
       title: "Machine Learning Exploration",
@@ -39,8 +39,7 @@ const Projects = () => {
   const upcomingProjects = [
     "Personal Portfolio Website Enhancement",
     "Task Management Application",
-    "Weather Dashboard with API Integration",
-    "Social Media Analytics Tool"
+    "Appointment Booking System",
   ];
 
   return (
@@ -154,10 +153,26 @@ const Projects = () => {
                 <Button className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-3 text-lg rounded-xl hover-lift transition-all duration-300">
                   <Github className="mr-2" size={20} />
                   View GitHub Profile
+                  <a
+                    href="https://github.com/Divyansh-Atri"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0"
+                    aria-label="View GitHub Profile"
+                    tabIndex={-1}
+                  />
                 </Button>
                 <Button variant="outline" className="border-gray-600 text-gray-300 hover:text-white hover:border-green-500 hover:bg-green-500/10 px-8 py-3 text-lg rounded-xl hover-lift transition-all duration-300">
                   <Code className="mr-2" size={20} />
                   Connect With Me
+                  <a
+                    href="mailto:divyansh.atri@research.iiit.ac.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0"
+                    aria-label="Send Email"
+                    tabIndex={-1}
+                  />
                 </Button>
               </div>
             </div>

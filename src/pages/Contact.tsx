@@ -29,9 +29,15 @@ const Contact = () => {
       color: "text-green-400"
     },
     {
+      icon: MapPin,
+      title: "Location",
+      value: "Telangana (IIIT Hyderabad), India",
+      color: "text-green-400"
+    },
+    {
       icon: Mail,
       title: "Email",
-      value: "divyansh.atri@example.com",
+      value: "divyansh.atri@research.iiit.ac.in",
       color: "text-blue-400"
     },
     {
@@ -93,7 +99,7 @@ const Contact = () => {
                   <Github size={28} className="text-gray-400 group-hover:text-white transition-colors" />
                 </a>
                 <a 
-                  href="mailto:divyansh.atri@example.com"
+                  href="mailto:divyansh.atri@research.iiit.ac.in"
                   className="group p-4 bg-gradient-to-r from-green-600/20 to-green-700/20 hover:from-green-600/30 hover:to-green-700/30 rounded-xl transition-all duration-300 hover-lift border border-green-500/30"
                 >
                   <Mail size={28} className="text-green-400 group-hover:text-green-300 transition-colors" />
@@ -111,78 +117,90 @@ const Contact = () => {
                 </p>
               </div>
             </div>
-
-            {/* Contact Form */}
-            <Card className="card-gradient hover-lift animate-fade-in-up" style={{animationDelay: '0.4s'}}>
-              <CardHeader>
-                <CardTitle className="text-2xl text-white">Contact Form</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
-                  <p className="text-yellow-300 text-sm">
-                    📧 This form is for display purposes only. Please use the email link or social media links to contact me directly.
-                  </p>
-                </div>
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                      Full Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      disabled
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your full name"
-                      className="w-full bg-gray-800/30 border-gray-600 text-gray-500 placeholder-gray-500 cursor-not-allowed"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                      Email Address
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      disabled
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your.email@example.com"
-                      className="w-full bg-gray-800/30 border-gray-600 text-gray-500 placeholder-gray-500 cursor-not-allowed"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      disabled
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell me about your project or just say hello!"
-                      rows={6}
-                      className="w-full bg-gray-800/30 border-gray-600 text-gray-500 placeholder-gray-500 cursor-not-allowed"
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="button" 
-                    disabled
-                    className="w-full bg-gray-600 text-gray-400 py-3 text-lg font-semibold rounded-xl cursor-not-allowed"
+            <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              <form
+                action="https://wa.me/919999999999"
+                method="get"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col gap-4 bg-gradient-to-r from-green-600/20 to-green-700/20 p-6 rounded-xl border border-green-500/30 mb-8 hover:from-green-600/30 hover:to-green-700/30 transition-all duration-300 hover-lift"
+                onSubmit={e => {
+                  e.preventDefault();
+                  const name = (e.currentTarget.elements.namedItem('wa_name') as HTMLInputElement)?.value || '';
+                  const message = (e.currentTarget.elements.namedItem('wa_message') as HTMLInputElement)?.value || '';
+                  const url = `https://wa.me/919999999999?text=${encodeURIComponent(
+                    `Hi, my name is ${name}.\n${message}`
+                  )}`;
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                }}
+              >
+                <div className="flex items-center space-x-4 mb-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={32}
+                    height={32}
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    className="text-green-400"
                   >
-                    <Send className="mr-2" size={20} />
-                    Form Disabled
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    <circle cx="16" cy="16" r="16" fill="#25D366" />
+                    <path
+                      d="M23.5 18.5c-.4-.2-2.3-1.1-2.6-1.2-.3-.1-.5-.2-.7.2-.2.3-.8 1.2-1 1.4-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.5-2.2-2.9-.2-.4 0-.6.2-.8.2-.2.3-.4.5-.6.2-.2.2-.4.3-.7.1-.2 0-.5-.1-.7-.1-.2-.7-1.7-1-2.3-.3-.6-.6-.5-.8-.5-.2 0-.5 0-.7 0-.2 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.3 0 1.9 1.4 3.7 1.6 4 .2.3 2.7 4.2 6.6 5.7.9.3 1.6.5 2.1.6.9.1 1.7.1 2.3.1.7 0 2.3-.7 2.6-1.5.3-.8.3-1.5.2-1.6-.1-.1-.4-.2-.8-.4z"
+                      fill="#fff"
+                    />
+                  </svg>
+                  <div>
+                    <h3 className="font-semibold text-white text-lg">WhatsApp</h3>
+                    <p className="text-gray-300">Send me a message directly on WhatsApp</p>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="wa_name" className="block text-sm font-medium text-gray-300 mb-1">
+                    Your Name
+                  </label>
+                  <input
+                    id="wa_name"
+                    name="wa_name"
+                    type="text"
+                    required
+                    placeholder="Enter your name"
+                    className="w-full bg-gray-800/30 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="wa_message" className="block text-sm font-medium text-gray-300 mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    id="wa_message"
+                    name="wa_message"
+                    required
+                    rows={3}
+                    placeholder="Type your message"
+                    className="w-full bg-gray-800/30 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={20}
+                    height={20}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    className="inline-block"
+                  >
+                    <path
+                      d="M2 21l21-9-21-9v7l15 2-15 2v7z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  Send via WhatsApp
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

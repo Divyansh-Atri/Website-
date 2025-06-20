@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const About = () => {
   const skills = [
     "JavaScript/TypeScript", "React.js", "Node.js", "Python",
-    "SQL", "MongoDB", "Express.js", "Git", "AWS", "Docker"
+    "SQL", "MongoDB", "Express.js", "Git", "AWS", "Docker", "CSS", "HTML","C","C++","Java","GraphQL"
   ];
 
   const highlights = [
@@ -112,6 +112,26 @@ const About = () => {
                     Continuously learning and implementing modern development practices, 
                     with experience in full-stack development and cloud technologies.
                   </p>
+                </CardContent>
+              </Card>
+              <Card className="card-gradient hover-lift">
+                <CardContent className="p-6">
+                  <GraduationCap className="text-green-400 mx-auto mb-4" size={48} />
+                  <h3 className="text-xl font-semibold mb-3 text-white">PM SHRI Senior Secondary School</h3>
+                  <div className="space-y-2 text-gray-300">
+                    <p className="font-medium">Senior Secondary</p>
+                    <p className="font-medium">Scored 98.6% in class 12th</p>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="card-gradient hover-lift">
+                <CardContent className="p-6">
+                  <GraduationCap className="text-green-400 mx-auto mb-4" size={48} />
+                  <h3 className="text-xl font-semibold mb-3 text-white">Mount Carmel Sr. Sec. School</h3>
+                  <div className="space-y-2 text-gray-300">
+                    <p className="font-medium">class 1st to 10th </p>
+                    <p className="font-medium">Scored 97.6% in class 10th</p>
+                  </div>
                 </CardContent>
               </Card>
             </div>
