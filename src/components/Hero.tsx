@@ -15,17 +15,14 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="animate-fade-in-up">
           {/* Profile Image with enhanced styling */}
-          <div className="mb-8 relative">
-            <div className="relative inline-block">
-              <img
-                src="/divyanshnew.jpg"
-                alt="Divyansh Atri"
-                className="w-40 h-40 rounded-full mx-auto border-4 border-green-500/30 shadow-2xl animate-glow"
-              />
-              <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-blue-500 p-2 rounded-full">
-                <Sparkles className="text-white" size={20} />
-              </div>
-            </div>
+         <div className="w-40 h-40 rounded-full overflow-hidden mx-auto border-4 border-green-500/30 shadow-2xl animate-glow">
+  <img
+    src="/divyanshnew.jpg"
+    alt="Divyansh Atri"
+    className="w-full h-full object-cover"
+  />
+</div>
+
           </div>
           
           {/* Enhanced name display */}
