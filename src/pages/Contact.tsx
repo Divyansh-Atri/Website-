@@ -119,7 +119,7 @@ const Contact = () => {
             </div>
             <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <form
-                action="https://wa.me/919999999999"
+                action="https://wa.me/919459145045"
                 method="get"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -128,7 +128,7 @@ const Contact = () => {
                   e.preventDefault();
                   const name = (e.currentTarget.elements.namedItem('wa_name') as HTMLInputElement)?.value || '';
                   const message = (e.currentTarget.elements.namedItem('wa_message') as HTMLInputElement)?.value || '';
-                  const url = `https://wa.me/919999999999?text=${encodeURIComponent(
+                  const url = `https://wa.me/919459145045?text=${encodeURIComponent(
                     `Hi, my name is ${name}.\n${message}`
                   )}`;
                   window.open(url, '_blank', 'noopener,noreferrer');
