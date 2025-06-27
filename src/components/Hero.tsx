@@ -18,7 +18,7 @@ const Hero = () => {
           <div className="mb-8 relative">
             <div className="relative inline-block">
               <img
-                src="divyansh.png"
+                src="/divyanshnew.jpg"
                 alt="Divyansh Atri"
                 className="w-40 h-40 rounded-full mx-auto border-4 border-green-500/30 shadow-2xl animate-glow"
               />
